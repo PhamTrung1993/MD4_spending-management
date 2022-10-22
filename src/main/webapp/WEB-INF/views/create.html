@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Add Product</h3>
+<p>
+    <a th:href="@{/list}">
+        Back to product list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/save}" th:object="${exForm}"
+          method="POST" novalidate="novalidate" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{exName}"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="text" th:field="*{exPrice}"/>
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{exDescription}"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" th:field="*{exCategory}"/>
+        </div>
+        <div>
+            <label>Image</label>
+            <input type="file" th:field="*{invoicePhoto}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
